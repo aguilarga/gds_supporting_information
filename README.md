@@ -15,8 +15,11 @@ It includes:
 ***Note on the approach***: by-product technology assumption (Stone's method) is applied. Inputs of products to activities/final consumers includes only products that are produced as principal productions.
 
 ## main.py
-It includes all functions for calculating results of 'Global distribution of material inflows to in-use stocks 
+It includes all functions for calculating results of 'Global distribution of material inflows to capital formation 
 and its implications for a circularity transition' 
+
+## country_validation.py
+It retrieves results for country validation in Table S2, Section 2, ***Appendix.docx***
 
 ## Data_S1.xls 
 Results from ***main.py*** by running ***save_result()*** function
