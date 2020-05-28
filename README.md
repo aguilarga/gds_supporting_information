@@ -33,4 +33,4 @@ Results from ***main.py*** grouped by income category. This Excel file was creat
 It includes countries, regions and income classification of EXIOBASE matching World Bank groups
 
 ## Appendix.docx
-It includes procedure for importing data from EXIOBASE website (http://www.exiobase.eu/),constructing the figures, and a comparison between the paper's results and previous studies.
+It includes procedure for importing data from EXIOBASE website (http://www.exiobase.eu/), constructing the figures, and a comparison between the paper's results and previous studies.
