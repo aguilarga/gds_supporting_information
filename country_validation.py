@@ -12,7 +12,7 @@ Software version: Phyton 3.7.3
 
 Created on Wed Oct 23 10:37:04 2019
 
-Updated on Thu Apr 02 11:45 2020
+Updated on Wed May 27 14:45 2020
 
 @author: aguilarga
 """
@@ -37,8 +37,9 @@ def stock_per_mat_cal(m_name, c_name, SA, SA_FD, TR, TR_FD):
     con = (SA.loc[m_name, idx[c_name, 'Construction (45)']].sum())
     tra = (TR.loc[m_name, c_name].sum().sum() +
            TR_FD.loc[m_name, c_name].sum().sum())
-    rest = tot - con - tra
-    r = np.array([con, tra, rest])
+    fd = SA_FD.loc[m_name, c_name].sum().sum()
+    rest = tot - con - tra - fd
+    r = np.array([con, tra, fd, rest])
     return r
 
 # AGGREGATION OF SELECTED COUNTRIES/REGIONS
@@ -92,7 +93,8 @@ for i in c_code:
     df = stock_per_mat_cal('Steel', i, SA, SA_FD, TR, TR_FD)
     emp.append(df)
 st_all = pd.DataFrame(emp, index=c_code,
-                      columns=['Construction', 'Transport', 'Rest'])
+                      columns=['Construction', 'Transport', 'Final Demand',
+                               'Rest'])
 # calculating SA of steel per country/region
 st_agg = reg_agg(st_all)  # aggregating SA of steel
 

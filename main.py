@@ -29,7 +29,7 @@ Software version: Phyton 3.7.3
 
 Created on Wed Oct 23 10:37:04 2019
 
-Updated on Thu Apr 02 11:45 2020
+Updated on Tue May 26 11:45 2020
 
 @author: aguilarga
 """
@@ -94,7 +94,8 @@ def main():
                                i, SA, SA_FD, TR, TR_FD)
         emp.append(df)
     nm_all = pd.DataFrame(emp, index=c_code,
-                          columns=['Construction', 'Transport', 'Rest'])
+                          columns=['Construction', 'Transport', 'Final Demand',
+                                   'Rest'])
     # calculating SA of non-metallic minerals per country/region
     nm_agg = region_agg(nm_all)  # aggregating SA non-metallic minerals
 
@@ -104,7 +105,8 @@ def main():
         df = stock_per_mat_cal('Glass', i, SA, SA_FD, TR, TR_FD)
         emp.append(df)
     gl_all = pd.DataFrame(emp, index=c_code,
-                          columns=['Construction', 'Transport', 'Rest'])
+                          columns=['Construction', 'Transport', 'Final Demand',
+                                   'Rest'])
     # calculating SA of glass per country/region
     gl_agg = region_agg(gl_all)  # aggregating SA of glass
     # STEEL
@@ -113,7 +115,8 @@ def main():
         df = stock_per_mat_cal('Steel', i, SA, SA_FD, TR, TR_FD)
         emp.append(df)
     st_all = pd.DataFrame(emp, index=c_code,
-                          columns=['Construction', 'Transport', 'Rest'])
+                          columns=['Construction', 'Transport', 'Final Demand',
+                                   'Rest'])
     # calculating SA of steel per country/region
     st_agg = region_agg(st_all)  # aggregating SA of steel
     return sa_all.T, sa_all_tot.T, sa_agg.T, sa_agg_tot.T, sa_agg_mat.T, nm_agg.T, gl_agg.T, st_agg.T
@@ -144,8 +147,9 @@ def stock_per_mat_cal(m_name, c_name, SA, SA_FD, TR, TR_FD):
     con = (SA.loc[m_name, idx[c_name, 'Construction (45)']].sum())
     tra = (TR.loc[m_name, c_name].sum().sum() +
            TR_FD.loc[m_name, c_name].sum().sum())
-    rest = tot - con - tra
-    r = np.array([con, tra, rest])
+    fd = SA_FD.loc[m_name, c_name].sum().sum()
+    rest = tot - con - tra - fd
+    r = np.array([con, tra, fd, rest])
     return r
 
 # AGGREGATION OF SELECTED COUNTRIES/REGIONS
