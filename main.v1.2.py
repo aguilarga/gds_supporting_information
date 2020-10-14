@@ -29,7 +29,7 @@ Software version: Phyton 3.8.3
 
 Created on Wed Oct 23 10:37:04 2019
 
-Updated on Tue Nov 07 19:00 2020
+Updated on Tue Nov 13 11:30 2020
 
 @author: aguilarga
 """
