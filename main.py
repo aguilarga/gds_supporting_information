@@ -23,13 +23,13 @@ The Excel file contains three spreadsheet, as:
     8) st_agg: steel stock additions in construction, transport
                and rest of sectors in tonnes
 
-Database: EXIOBASE MR-HIOT v.3.3.18.
+Database: EXIOBASE MR-HIOT v.3.3.17.
 
 Software version: Phyton 3.7.3
 
 Created on Wed Oct 23 10:37:04 2019
 
-Updated on Tue Nov 07 19:00 2020
+Updated on Tue May 26 11:45 2020
 
 @author: aguilarga
 """
@@ -43,17 +43,17 @@ from datetime import datetime
 
 def main():
     # SETTINGS
-    path = 'EXIOBASE_3.3.18_hsut_2011'
-    SA = read_csv(path + '\SA_ACT.txt', sep='\t', index_col=[0],
-                  header=[0, 1], decimal='.')  # stock additions matrix
-    SA_FD = read_csv(path + '\SA_FD.txt', sep='\t', index_col=[0],
-                     header=[0, 1], decimal='.')  # add_stocks from FD
-    TR = read_csv(path + '\TR_ACT.txt', sep='\t', index_col=[0],
+    path = 'EXIOBASE_3.3.17_hsut_2011'
+    SA = read_csv(path + '\SA_ACT.txt', sep='\t', index_col=[0, 1],
+                  header=[0, 1], decimal=',')  # stock additions matrix
+    SA_FD = read_csv(path + '\SA_FD.txt', sep='\t', index_col=[0, 1],
+                     header=[0, 1], decimal=',')  # add_stocks from FD
+    TR = read_csv(path + '\TR_ACT.txt', sep='\t', index_col=[0, 1],
                   header=[0, 1], decimal='.')  # stock for transport matrix
-    TR_FD = read_csv(path + '\TR_FD.txt', sep='\t', index_col=[0],
+    TR_FD = read_csv(path + '\TR_FD.txt', sep='\t', index_col=[0, 1],
                      header=[0, 1], decimal='.')  # add_stocks for transport FD
-    pop = read_csv(path + '\POP.txt', sep='\t', index_col=[0], header=[0],
-                   decimal='.')  # population vector
+    pop = read_csv(path + '\POP.txt', sep='\t', index_col=[0],
+                   decimal=',')  # population vector
     # INDICES AND LABELS
     c_code = ['AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES', 'FI',
               'FR', 'GR', 'HU', 'HR', 'IE', 'IT', 'LT', 'LU', 'LV', 'MT',
