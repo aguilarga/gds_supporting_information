@@ -10,9 +10,9 @@ Database: EXIOBASE MR-HIOT v.3.3.18.
 
 Software version: Phyton 3.7.3
 
-Created on Wed Oct 23 10:37:04 2019
+Created on Wed Oct 23 10:37 2019
 
-Updated on Wed Oct 14 14:45 2020
+Updated on Mon Nov 02 14:45 2020
 
 @author: aguilarga
 """

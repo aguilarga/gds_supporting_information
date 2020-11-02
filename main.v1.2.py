@@ -27,9 +27,9 @@ Database: EXIOBASE MR-HIOT v.3.3.18.
 
 Software version: Phyton 3.8.3
 
-Created on Wed Oct 23 10:37:04 2019
+Created on Wed Oct 23 10:37 2019
 
-Updated on Tue Nov 13 11:30 2020
+Updated on Mon Nov 02 14:30 2020
 
 @author: aguilarga
 """
@@ -100,17 +100,6 @@ def main():
     # calculating SA of non-metallic minerals per country/region
     nm_agg = region_agg(nm_all)  # aggregating SA non-metallic minerals
 
-    # GLASS
-    emp = []
-    for i in c_code:
-        df = stock_per_mat_cal('Glass', i, SA, SA_FD, TR, TR_FD)
-        emp.append(df)
-    gl_all = pd.DataFrame(emp, index=c_code,
-                          columns=['Construction', 'Transport', 
-                                   'hh', 'ngo', 'gov', 'gfc', 'cin', 'civ',
-                                   'Rest'])
-    # calculating SA of glass per country/region
-    gl_agg = region_agg(gl_all)  # aggregating SA of glass
     # STEEL
     emp = []
     for i in c_code:
@@ -122,7 +111,7 @@ def main():
                                    'Rest'])
     # calculating SA of steel per country/region
     st_agg = region_agg(st_all)  # aggregating SA of steel
-    return sa_all.T, sa_all_tot.T, sa_agg.T, sa_agg_tot.T, sa_agg_mat.T, nm_agg.T, gl_agg.T, st_agg.T
+    return sa_all.T, sa_all_tot.T, sa_agg.T, sa_agg_tot.T, sa_agg_mat.T, nm_agg.T, st_agg.T
 
 # FUNCTIONS
 
@@ -273,7 +262,7 @@ def region_and_mat_agg(df):
 
 
 def save_result():
-    sa_all, sa_all_tot, sa_agg, sa_agg_tot, sa_agg_mat, nm_agg, gl_agg, st_agg  = main()
+    sa_all, sa_all_tot, sa_agg, sa_agg_tot, sa_agg_mat, nm_agg, st_agg  = main()
     writer = ExcelWriter("Data_S1_" +
                          datetime.now().strftime('%Y%m%d') + "all_fd"+ ".xlsx")
     sa_all.to_excel(writer, 'sa_all')
@@ -282,7 +271,6 @@ def save_result():
     sa_agg_tot.to_excel(writer, 'sa_agg_tot')
     sa_agg_mat.to_excel(writer, 'sa_agg_mat')
     nm_agg.to_excel(writer, 'non-metallic')
-    gl_agg.to_excel(writer, 'glass')
     st_agg.to_excel(writer, 'steel')
     writer.save()
     return
