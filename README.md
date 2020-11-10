@@ -6,15 +6,6 @@
 # gds_supporting_information
 This repository corresponds to supplemetary information of the paper 'Global distribution of material inflows to in-use stocks in 2011 and its implications for a circularity transition'
 
-## EXIOBASE_3.3.17_hsut_2011 folder
-It includes:	
-* Materials accumulated at the end of the period by activities ('SA_ACT.txt')	
-* Materials accumulated at the end of the period by final demand categories	('SA_FD.txt')
-* Materials accumulated for transport equiment at the end of the period by activities ('TR_ACT.txt')	
-* Materials accumulated for transport equiment at the end of the period by final demand categories ('TR_FD.txt')	
-* Population per country/region from World Bank database ('POP.txt')
-* Classfications used in EXIOBASE v3.3.17	('Classifications.xlsx')
-
 ## EXIOBASE_3.3.18_hsut_2011 folder
 It includes:	
 * Materials accumulated at the end of the period by activities ('SA_ACT.txt')	
@@ -29,10 +20,6 @@ It includes:
 ## main.v1.2.py
 It includes all functions for calculating results of 'Global distribution of material inflows to in-use stocks in 2011 
 and its implications for a circularity transition' with EXIOBASE v3.3.18.
-
-## main.py
-It includes all functions for calculating results of 'Global distribution of material inflows to in-use stocks in 2011 
-and its implications for a circularity transition' with EXIOBASE v3.3.17.
 
 ## country_validation.py
 It retrieves results for country validation in Table S2, Section 2, ***Appendix.docx***
